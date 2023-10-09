@@ -50,4 +50,9 @@ DataProvider.propTypes = {
 
 export const useData = () => useContext(DataContext);
 
+export const useLastData = () => {
+  const { data } = useData();
+  return data?.events ? data.events[data.events.length-1] : {}
+}
+
 export default DataContext;

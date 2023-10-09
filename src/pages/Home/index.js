@@ -10,10 +10,10 @@ import Logo from "../../components/Logo";
 import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
-import { useData } from "../../contexts/DataContext";
+import { useLastData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const last = useLastData()
   return <>
     <header>
       <Menu />
