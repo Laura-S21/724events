@@ -52,7 +52,11 @@ export const useData = () => useContext(DataContext);
 
 export const useLastData = () => {
   const { data } = useData();
-  return data?.events ? data.events[data.events.length-1] : {}
+  if(!data?.events.length) return undefined
+
+  const sortedDates = data.events.sort((a, b) => a.date - b.date);
+  return sortedDates[data.events.length-1]
 }
+
 
 export default DataContext;
