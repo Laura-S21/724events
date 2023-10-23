@@ -54,7 +54,11 @@ export const useLastData = () => {
   const { data } = useData();
   if(!data?.events.length) return undefined
 
-  const sortedDates = data.events.sort((a, b) => a.date - b.date);
+  const sortedDates = data.events.sort((a, b) => {
+    const date1 = new Date(a.date);
+    const date2 = new Date(b.date);
+   return date1 - date2;
+  });
   return sortedDates[data.events.length-1]
 }
 
